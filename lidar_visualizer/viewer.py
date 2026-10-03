@@ -57,7 +57,7 @@ def run_viewer(
     panel = gui.Vert(0, gui.Margins(12, 12, 12, 12))
     panel.add_child(gui.Label("Lidarseg class legend"))
     panel.add_child(gui.Label(f"{scene_name} · {len(frames)} key frames"))
-    panel.add_child(gui.Label("← / → or A / D: change frame"))
+    panel.add_child(gui.Label("<-- / --> or A / D: change frame"))
     panel.add_child(gui.Label("Q: close window"))
     segmentation_toggle = gui.Checkbox("Show segmentation colors")
     segmentation_toggle.checked = True

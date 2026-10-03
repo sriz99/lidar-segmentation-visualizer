@@ -1,7 +1,12 @@
-# nuScenes LiDAR segmentation visualizer
+# LiDAR segmentation visualizer
 
 An Open3D desktop viewer for choosing a nuScenes scene and browsing its ordered
 `LIDAR_TOP` key frames, colored by their lidarseg semantic labels.
+
+<p align="center">
+  <img src="assets/lidar-non-seg.png" width="45%" />
+  <img src="assets/lidar-seg.png" width="45%" />
+</p>
 
 ## Create the Conda environment
 
@@ -38,6 +43,22 @@ semantic coloring; when off, points use a uniform dark gray. nuScenes mini's 32
 labels are grouped into this display scheme; unrelated labels are shown as
 void/ignore.
 The requested “sidebar” class is treated as `sidewalk`.
+
+## Use the full nuScenes release
+
+The viewer can use the full labeled train/validation release without code
+changes. Extract the full dataset and nuScenes-lidarseg files into one root so
+it contains `samples/`, `lidarseg/`, and `v1.0-trainval/`, then run:
+
+```bash
+python visualize.py --dataroot /path/to/full/nuscenes --version v1.0-trainval
+```
+
+You can also pass `--scene scene-XXXX` to select a scene directly. The current
+viewer requires one segmentation label file for every frame, so it works with
+the labeled `trainval` split. The `test` split does not provide ground-truth
+lidarseg labels; viewing that split would need optional-label support or
+prediction files.
 
 ## Code layout
 
